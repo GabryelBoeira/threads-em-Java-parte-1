@@ -2,7 +2,7 @@ package br.com.gabryel.buscaTextual;
 
 public class Main {
     public static void main(String[] args) {
-        String procurarNome = "da";
+        String procurarNome = "(Da|Jef)(\\s|\\w)*";
 
         Thread threadAssinaturas1 = new Thread(new TarefaBuscaTextual("assinaturas1.txt", procurarNome));
 
