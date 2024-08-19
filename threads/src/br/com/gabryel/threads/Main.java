@@ -10,7 +10,14 @@ public class Main {
         Thread t = new Thread(new TarefaLog());
         t.start();
 
-        System.out.println("Depois Thread MAIN");
+        //Trabalhar com Threads anônimas, codigo explicito por questoes de legibilidade
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Depois Thread MAIN");
+            }
+        }).start();
+
     }
 
 }
