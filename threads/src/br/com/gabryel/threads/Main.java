@@ -5,7 +5,10 @@ public class Main {
 
         System.out.println("Antes Thread MAIN");
 
-        Thread.sleep(50000);
+        Thread.sleep(5000);
+
+        Thread t = new Thread(new TarefaLog());
+        t.start();
 
         System.out.println("Depois Thread MAIN");
     }
