@@ -3,20 +3,20 @@ package br.com.alura.threads;
 import javax.swing.*;
 import java.math.BigInteger;
 
-public class TarefaMultiplicacao implements Runnable {
+public class TarefaMultiplicacaoThread extends Thread {
 
-    private final JTextField primeiro;
-    private final JTextField segundo;
+    private JTextField primeiro;
+    private JTextField segundo;
     private JLabel resultado;
 
-    public TarefaMultiplicacao(JTextField primeiro, JTextField segundo, JLabel resultado) {
+    public TarefaMultiplicacaoThread(JTextField primeiro, JTextField segundo, JLabel resultado) {
         this.primeiro = primeiro;
         this.segundo = segundo;
         this.resultado = resultado;
     }
 
-    @Override
-    public void run() {
+    public void run () {
+
         long valor1 = Long.parseLong(primeiro.getText());
         long valor2 = Long.parseLong(segundo.getText());
 
@@ -30,5 +30,4 @@ public class TarefaMultiplicacao implements Runnable {
 
         resultado.setText(calculo.toString());
     }
-
 }

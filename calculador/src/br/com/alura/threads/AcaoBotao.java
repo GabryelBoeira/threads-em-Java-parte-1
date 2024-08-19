@@ -19,9 +19,25 @@ public class AcaoBotao implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        executandoRunnable();
+        executandoThread();
+    }
 
+    /**
+     * Creates and starts a new thread to execute the TarefaMultiplicacaoThread task.
+     */
+    private void executandoThread() {
+
+        TarefaMultiplicacaoThread multiplicador = new TarefaMultiplicacaoThread(primeiro, segundo, resultado);
+        multiplicador.start();
+    }
+
+    /**
+     * Creates and starts a new thread to execute the TarefaMultiplicacaoRunnable task.
+     */
+    private void executandoRunnable() {
         Thread threadCalculo = new Thread(
-                new TarefaMultiplicacao(primeiro, segundo, resultado), "Thread Multiplicação"
+                new TarefaMultiplicacaoRunnable(primeiro, segundo, resultado), "Thread Multiplicação"
         );
 
         threadCalculo.start();
