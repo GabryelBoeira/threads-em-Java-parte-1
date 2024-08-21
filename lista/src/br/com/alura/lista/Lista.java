@@ -2,7 +2,7 @@ package br.com.alura.lista;
 
 public class Lista {
 
-    private String[] elementos = new String[100];
+    private String[] elementos = new String[1000];
     private int posicao = 0;
 
     public synchronized void adicionarElementos(String elemento) {
@@ -10,12 +10,12 @@ public class Lista {
         this.posicao++;
 
         try {
-            Thread.sleep(50);
+            Thread.sleep(5);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        if (this.posicao == 100) {
+        if (this.posicao == 1000) {
             System.out.println("A lista esta cheia");
             this.notify();
         }
@@ -27,6 +27,10 @@ public class Lista {
 
     public String pegaElemento(int posicao) {
         return this.elementos[posicao];
+    }
+
+    public boolean estaCheia() {
+        return this.posicao == this.tamanho();
     }
 
 }
