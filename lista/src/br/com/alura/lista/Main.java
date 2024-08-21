@@ -13,7 +13,7 @@ public class Main {
         List<String> listaVector = new Vector<>();
 
         for (int i = 0; i < 10; i++) {
-            new Thread(new TarefaAdicionarElemento(lista, i)).start();
+            new Thread(new TarefaAdicionarElementoArrayList(lista, i)).start();
         }
 
         Thread.sleep(2000);
