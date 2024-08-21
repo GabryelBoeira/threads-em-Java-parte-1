@@ -2,7 +2,7 @@ package br.com.alura.lista;
 
 public class Lista {
 
-    private String[] elementos = new String[1000];
+    private final String[] elementos = new String[1000];
     private int posicao = 0;
 
     public synchronized void adicionarElementos(String elemento) {
