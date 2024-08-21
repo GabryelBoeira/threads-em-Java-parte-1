@@ -1,24 +1,21 @@
 package br.com.alura.lista;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Lista {
 
-    private List<String> elementos = new ArrayList<>();
+    private String[] elementos = new String[100];
     private int posicao = 0;
 
     public synchronized void adicionarElementos(String elemento) {
-        this.elementos.add(posicao, elemento);
+        this.elementos[posicao] = elemento;
         this.posicao++;
     }
 
     public int tamanho() {
-        return this.elementos.size();
+        return this.elementos.length;
     }
 
     public String pegaElemento(int posicao) {
-        return this.elementos.get(posicao);
+        return this.elementos[posicao];
     }
 
 }
