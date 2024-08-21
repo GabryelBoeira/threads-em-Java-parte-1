@@ -10,6 +10,13 @@ public class TarefaNumero3 implements Runnable {
 
     @Override
     public void run() {
-        banheiro.limpar();
+        while (true) {
+            banheiro.limpar();
+            try {
+                Thread.sleep(15000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

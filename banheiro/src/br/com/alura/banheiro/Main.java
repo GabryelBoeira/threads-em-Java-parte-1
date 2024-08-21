@@ -12,10 +12,12 @@ public class Main {
 //        Thread convidado4 = new Thread(new TarefaNumero2(banheiro), "Convidado 4");
 
         Thread limpeza1 = new Thread(new TarefaNumero3(banheiro), "Limpeza 1");
+        limpeza1.setDaemon(true);
 
+
+        limpeza1.start();
         convidado1.start();
         convidado2.start();
-        limpeza1.start();
 //        convidado3.start();
 //        convidado4.start();
     }
