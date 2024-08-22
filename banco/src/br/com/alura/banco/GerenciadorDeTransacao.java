@@ -3,7 +3,7 @@ package br.com.alura.banco;
 public class GerenciadorDeTransacao {
 
     public void begin() {
-        System.out.println("Begin a transação");
+        System.out.println("begin");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -12,11 +12,16 @@ public class GerenciadorDeTransacao {
     }
 
     public void commit() {
-        System.out.println("Commit a transação");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Commit");
     }
 
     public void rollback() {
-        System.out.println("Rollback a transação");
+        System.out.println("Rollback");
     }
 
 }
