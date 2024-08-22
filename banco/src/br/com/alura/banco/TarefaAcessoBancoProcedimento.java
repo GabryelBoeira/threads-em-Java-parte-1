@@ -4,12 +4,14 @@ public record TarefaAcessoBancoProcedimento(GerenciadorDeTransacao transacao, Po
 
     @Override
     public void run() {
-        synchronized (transacao) {
-            System.out.println("transacao: Tarefa Acesso Banco Procedimento");
-            transacao.begin();
-            synchronized (pool) {
-                System.out.println("conexao: Tarefa Acesso Banco Procedimento");
-                pool.getConnection();
+        synchronized (pool) {
+            System.out.println("conexao: Tarefa Acesso Banco Procedimento");
+            pool.getConnection();
+
+            synchronized (transacao) {
+                System.out.println("transacao: Tarefa Acesso Banco Procedimento");
+                transacao.begin();
+                transacao.commit();
             }
         }
     }
